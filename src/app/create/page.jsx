@@ -8,7 +8,7 @@ import { SONGS } from 'utils/data';
 
 const Create = () => {
   const songs = SONGS.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
-  const [selectedSong, setSelectedSong] = useState(SONGS[0]);
+  const [selectedSong, setSelectedSong] = useState(null);
 
   const onSelectSong = (song) => {
     setSelectedSong(song);

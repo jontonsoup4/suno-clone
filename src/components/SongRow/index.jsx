@@ -44,8 +44,8 @@ const SongRow = (props) => {
           )}
         >
           <PlayIcon
-            className={clsx('h-6 w-6 text-white', {
-              ['text-orange-400']: active,
+            className={clsx('h-6 w-6 text-orange-400 transition-all duration-200', {
+              ['text-white']: !active,
             })}
           />
         </button>
@@ -55,8 +55,8 @@ const SongRow = (props) => {
           <p className="flex items-center">
             <a
               href={`#${song.id}`}
-              className={clsx('hover:underline text-sm font-semibold text-white transition-all duration-200', {
-                ['text-orange-400']: active,
+              className={clsx('hover:underline text-sm font-semibold text-orange-400 transition-all duration-200', {
+                ['text-white']: !active,
               })}
             >
               {song.title}
