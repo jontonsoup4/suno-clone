@@ -2,7 +2,9 @@
 
 ## Description
 
-A clone of the Suno AI website UI using NextJS and Tailwind
+A clone of the Suno AI website UI using NextJS and Tailwind.
+
+See it live [here](https://suno-clone.vercel.app/create)!
 
 ## Working Pages
 
