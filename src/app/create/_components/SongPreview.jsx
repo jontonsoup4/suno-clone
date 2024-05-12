@@ -33,7 +33,7 @@ const SongPreview = (props) => {
             <div className="text-sm mb-2">{song?.metadata?.tags}</div>
             <div className="text-xs text-neutral-500 mb-4">{timestamp}</div>
             <div className="mb-8">
-              <Interactions song={song} menuLocation="right" />
+              <Interactions song={song} />
             </div>
             {song?.metadata?.gpt_description_prompt && (
               <div className="text-sm text-neutral-400 mb-8">{song?.metadata?.gpt_description_prompt}</div>

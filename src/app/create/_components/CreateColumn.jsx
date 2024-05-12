@@ -9,6 +9,7 @@ import Select from 'components/Select';
 import TextArea from 'components/TextArea';
 import Button from 'components/Button';
 import Input from 'components/Input';
+import Tooltip from 'components/Tooltip';
 import RandomSVG from 'assets/svg/Random';
 
 const CreateColumn = (props) => {
@@ -89,7 +90,15 @@ const CreateColumn = (props) => {
       {isCustomMode ? (
         <TextArea
           className="mb-4"
-          label="Lyrics"
+          label={
+            <div className="flex items-center gap-x-1">
+              <span>Lyrics</span>
+              <Tooltip>
+                Generate random lyrics, write your own, or get some help from Al. Use two verses (8 lines) for best
+                results.{' '}
+              </Tooltip>
+            </div>
+          }
           disabled={isInstrumental}
           rows={8}
           placeholder="Enter your own lyrics..."
@@ -103,7 +112,15 @@ const CreateColumn = (props) => {
       ) : (
         <TextArea
           className="mb-4"
-          label="Song Description"
+          label={
+            <div className="flex items-center leading-none gap-x-1">
+              <span>Song Description</span>
+              <Tooltip>
+                Describe the style of music and topic you want (e.g. 'acoustic pop about the holidays*). Use genres and
+                vibes instead of specific artists and songs.
+              </Tooltip>
+            </div>
+          }
           placeholder={songPromptPlaceholder}
           onChange={handleSongPromptChange}
           value={songPrompt}
@@ -113,7 +130,17 @@ const CreateColumn = (props) => {
           </Button>
         </TextArea>
       )}
-      <Toggle value={isInstrumental} onChange={setIsInstrumental} label="Instrumental" className="mb-8" />
+      <Toggle
+        value={isInstrumental}
+        onChange={setIsInstrumental}
+        label={
+          <div className="flex items-center gap-x-1">
+            <span>Instrumental</span>
+            <Tooltip>Create a song without lyrics.</Tooltip>
+          </div>
+        }
+        className="mb-8"
+      />
       {isCustomMode && (
         <TextArea
           className="mb-4"
@@ -130,7 +157,12 @@ const CreateColumn = (props) => {
       )}
       {isCustomMode && (
         <Input
-          label="Title"
+          label={
+            <div className="flex items-center gap-x-1">
+              <span>Title</span>
+              <Tooltip>Give your song a title for sharing, discovery and organization.</Tooltip>
+            </div>
+          }
           placeholder="Enter a title..."
           value={songTitle}
           onChange={handleSetSongTitle}

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Button from 'components/Button';
 import { EllipsisHorizontalIcon, HandThumbDownIcon, HandThumbUpIcon, ShareIcon } from '@heroicons/react/20/solid';
 import { Menu, Transition } from '@headlessui/react';
-import { Fragment } from 'react';
+import { Float } from '@headlessui-float/react';
 import clsx from 'clsx';
 
 const SONG_ACTIONS_TOP = [
@@ -36,9 +36,14 @@ const SONGS_ACTIONS_BOTTOM = [
 ];
 
 const Interactions = (props) => {
-  const { song, menuLocation = 'left' } = props;
+  const { song } = props;
+  const [showMenu, setShowMenu] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [isDisliked, setIsDisliked] = useState(false);
+
+  const handleToggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
 
   const handleLike = () => {
     const newValue = !isLiked;
@@ -78,13 +83,12 @@ const Interactions = (props) => {
       <Menu
         as="div"
         className="relative flex-none p-2 bg-transparent hover:bg-white/10 transition-background-color duration-200 rounded-md"
+        onClick={handleToggleMenu}
       >
-        <Menu.Button className="-m-2.5 block p-2.5 text-white">
-          <span className="sr-only">Open options</span>
-          <EllipsisHorizontalIcon className="h-4 w-4" aria-hidden="true" />
-        </Menu.Button>
-        <Transition
-          as={Fragment}
+        <Float
+          portal
+          flip
+          offset={8}
           enter="transition ease-out duration-100"
           enterFrom="transform opacity-0 scale-95"
           enterTo="transform opacity-100 scale-100"
@@ -92,18 +96,16 @@ const Interactions = (props) => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
+          <Menu.Button className="-m-2.5 block p-2.5 text-white">
+            <span className="sr-only">Open options</span>
+            <EllipsisHorizontalIcon className="h-4 w-4" aria-hidden="true" />
+          </Menu.Button>
           <Menu.Items
-            className={clsx(
-              'absolute z-50 mt-2 w-40 p-2 origin-top-right rounded-md bg-neutral-800 shadow-lg ring-1 ring-neutral-700 focus:outline-none',
-              {
-                ['left-0']: menuLocation === 'right',
-                ['right-0']: menuLocation === 'left',
-              },
-            )}
+            className={'w-64 p-2 rounded-md bg-neutral-800 shadow-lg ring-1 ring-neutral-700 focus:outline-none'}
           >
             <div>
               {SONG_ACTIONS_TOP.map((item) => (
-                <Menu.Item>
+                <Menu.Item key={item.label}>
                   {({ active }) => (
                     <a
                       href={item.href}
@@ -121,7 +123,7 @@ const Interactions = (props) => {
             <div className="border-neutral-700 border-b-[1px] my-2" />
             <div>
               {SONGS_ACTIONS_BOTTOM.map((item) => (
-                <Menu.Item>
+                <Menu.Item key={item.label}>
                   {({ active }) => (
                     <a
                       href={item.href}
@@ -153,7 +155,7 @@ const Interactions = (props) => {
               </Menu.Item>
             </div>
           </Menu.Items>
-        </Transition>
+        </Float>
       </Menu>
     </div>
   );
