@@ -1,3 +1,5 @@
+export const GITHUB_REPO = 'https://github.com/jontonsoup4/suno-clone';
+
 export const USER = {
   id: '23b5ced5-81d0-450f-9512-5eb0d24562c4',
   username: 'jontonsoup',

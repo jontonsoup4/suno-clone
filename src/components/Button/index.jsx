@@ -3,7 +3,7 @@ import { Button as HeadlessUIButton } from '@headlessui/react';
 import clsx from 'clsx';
 
 const Button = (props) => {
-  const { variant = 'primary', children, className, fullWidth, size = 'sm', icon, ...rest } = props;
+  const { variant = 'primary', children, className, fullWidth, size = 'sm', icon, href, ...rest } = props;
 
   const baseButtonClassName =
     'flex justify-center items-center rounded-md px-3 py-2 font-semibold shadow-sm transition-background-color duration-200';
@@ -23,6 +23,28 @@ const Button = (props) => {
     lg: 'text-lg',
     xl: 'text-xl',
   };
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        {...rest}
+        className={clsx(
+          baseButtonClassName,
+          disabledButtonClassName,
+          buttonSize[size],
+          className,
+          {
+            ['w-full']: fullWidth,
+          },
+          'bg-orange-200 text-black hover:bg-orange-300',
+        )}
+      >
+        {icon && <div className="mr-2">{icon}</div>}
+        {children}
+      </a>
+    );
+  }
 
   return (
     <HeadlessUIButton

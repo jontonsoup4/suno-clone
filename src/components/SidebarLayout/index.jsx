@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Dialog, Transition } from '@headlessui/react';
 import { Bars3Icon, CalendarIcon, FolderIcon, HomeIcon, UsersIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { USER } from 'utils/data';
+import { USER, GITHUB_REPO } from 'utils/data';
 import clsx from 'clsx';
 import MediaPlayer from 'components/MediaPlayer';
 
@@ -17,9 +17,9 @@ const navigation = [
 ];
 
 const links = [
-  { name: "What's New?", href: '#new' },
-  { name: 'Help', href: '#help' },
-  { name: 'About', href: '#about' },
+  { name: "What's New?", href: GITHUB_REPO },
+  { name: 'Help', href: GITHUB_REPO },
+  { name: 'About', href: GITHUB_REPO },
 ];
 
 const SidebarLayout = (props) => {
@@ -160,7 +160,7 @@ const SidebarLayout = (props) => {
                 <ul role="list" className="mt-2">
                   <li className="-mx-6">
                     <a
-                      href={'#credits'}
+                      href={GITHUB_REPO}
                       className={clsx(
                         'text-gray-400 font-normal hover:bg-neutral-800 mb-8',
                         'group flex gap-x-3 px-6 py-1 hover:text-white hover:underline text-sm leading-6 font-semibold transition-all duration-200',
@@ -184,7 +184,7 @@ const SidebarLayout = (props) => {
                   ))}
                   <li className="-mx-6 mt-4">
                     <a
-                      href={`#@${USER.username}`}
+                      href={GITHUB_REPO}
                       className="flex items-center gap-x-2 px-6 py-3 text-sm font-semibold leading-6 hover:bg-neutral-800"
                     >
                       <img
@@ -209,7 +209,7 @@ const SidebarLayout = (props) => {
           <Bars3Icon className="h-6 w-6" aria-hidden="true" />
         </button>
         <div className="flex-1 text-sm font-semibold leading-6">Dashboard</div>
-        <a href={`#@${USER.username}`}>
+        <a href={GITHUB_REPO}>
           <span className="sr-only">Your profile</span>
           <img
             className="h-8 w-8 rounded-full bg-neutral-800"

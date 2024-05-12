@@ -1,7 +1,9 @@
+import GithubButton from 'components/Button/GithubButton';
+
 const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
+    <div className="p-8 flex">
+      <GithubButton />
     </div>
   );
 };
