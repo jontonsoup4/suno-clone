@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState } from 'react';
+import { useState } from 'react';
 import { Float } from '@headlessui-float/react';
 import { Menu } from '@headlessui/react';
 import { QuestionMarkCircleIcon } from '@heroicons/react/20/solid';
@@ -6,8 +6,6 @@ import { QuestionMarkCircleIcon } from '@heroicons/react/20/solid';
 const Tooltip = (props) => {
   const { children } = props;
   const [showTooltip, setShowTooltip] = useState(false);
-
-  const floatRef = useRef(null);
 
   const handleOnMouseEnter = () => {
     setShowTooltip(true);
@@ -21,7 +19,7 @@ const Tooltip = (props) => {
     <Menu>
       <Float
         show={showTooltip}
-        placement="bottom"
+        flip
         offset={8}
         enter="transition ease-out duration-100"
         enterFrom="transform opacity-0 scale-95"
@@ -38,8 +36,8 @@ const Tooltip = (props) => {
           <QuestionMarkCircleIcon className="h-4 w-4 text-neutral-500" />
         </Menu.Button>
 
-        <Menu.Items static>
-          <p className="rounded-lg bg-neutral-800 px-4 py-2 max-w-72 leading-6">{children}</p>
+        <Menu.Items className="rounded-lg backdrop-blur-2xl bg-neutral-700/[0.5]" static>
+          <p className="rounded-lg px-4 py-2 max-w-72 leading-6">{children}</p>
         </Menu.Items>
       </Float>
     </Menu>

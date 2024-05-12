@@ -37,13 +37,8 @@ const SONGS_ACTIONS_BOTTOM = [
 
 const Interactions = (props) => {
   const { song } = props;
-  const [showMenu, setShowMenu] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [isDisliked, setIsDisliked] = useState(false);
-
-  const handleToggleMenu = () => {
-    setShowMenu(!showMenu);
-  };
 
   const handleLike = () => {
     const newValue = !isLiked;
@@ -83,7 +78,6 @@ const Interactions = (props) => {
       <Menu
         as="div"
         className="relative flex-none p-2 bg-transparent hover:bg-white/10 transition-background-color duration-200 rounded-md"
-        onClick={handleToggleMenu}
       >
         <Float
           portal
@@ -101,7 +95,9 @@ const Interactions = (props) => {
             <EllipsisHorizontalIcon className="h-4 w-4" aria-hidden="true" />
           </Menu.Button>
           <Menu.Items
-            className={'w-64 p-2 rounded-md bg-neutral-800 shadow-lg ring-1 ring-neutral-700 focus:outline-none'}
+            className={
+              'w-56 p-1 shadow-lg ring-1 ring-neutral-700 focus:outline-none rounded-lg backdrop-blur-2xl bg-neutral-800/[0.8]'
+            }
           >
             <div>
               {SONG_ACTIONS_TOP.map((item) => (
@@ -111,7 +107,7 @@ const Interactions = (props) => {
                       href={item.href}
                       className={clsx(
                         { ['bg-neutral-700']: active },
-                        'block px-3 py-1 text-sm leading-6 text-white transition-all duration-200 rounded-lg',
+                        'block px-2 py-1 text-sm leading-6 text-white transition-all duration-200 rounded-lg',
                       )}
                     >
                       {item.label}
