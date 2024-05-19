@@ -30,7 +30,7 @@ const SidebarLayout = (props) => {
   const isCurrent = (href) => pathname === href;
 
   return (
-    <div className="flex flex-row flex-1 h-full">
+    <div className="flex h-full flex-1 flex-row">
       {showMediaPlayer && <MediaPlayer />}
       <Transition.Root show={sidebarOpen} as={Fragment}>
         <Dialog className="relative z-10 lg:hidden" onClose={setSidebarOpen}>
@@ -89,8 +89,8 @@ const SidebarLayout = (props) => {
                                 className={clsx(
                                   isCurrent(item.href)
                                     ? 'bg-neutral-800 text-white'
-                                    : 'text-gray-400 hover:text-white hover:bg-neutral-800',
-                                  'group flex gap-x-3 p-2 text-sm leading-6 font-semibold',
+                                    : 'text-gray-400 hover:bg-neutral-800 hover:text-white',
+                                  'group flex gap-x-3 p-2 text-sm font-semibold leading-6',
                                 )}
                               >
                                 <item.icon className="h-6 w-6 shrink-0" aria-hidden="true" />
@@ -109,7 +109,7 @@ const SidebarLayout = (props) => {
                                 href={link.href}
                                 className={clsx(
                                   isCurrent(link.href) ? 'bg-neutral-800' : 'text-gray-400 hover:bg-neutral-800',
-                                  'group flex gap-x-3 p-2 text-sm leading-6 font-semibold',
+                                  'group flex gap-x-3 p-2 text-sm font-semibold leading-6',
                                 )}
                               >
                                 <span className="truncate">{link.name}</span>
@@ -128,11 +128,11 @@ const SidebarLayout = (props) => {
       </Transition.Root>
 
       {/* Static sidebar for desktop */}
-      <div className="hidden lg:fixed lg:inset-y-0 lg:z-10 lg:flex lg:w-[162px] lg:flex-col pb-[69px]">
+      <div className="hidden pb-[69px] lg:fixed lg:inset-y-0 lg:z-10 lg:flex lg:w-[162px] lg:flex-col">
         {/* Sidebar component, swap this element with another sidebar if you like */}
         <div className="flex grow flex-col overflow-y-auto bg-neutral-900 px-6">
-          <div className="flex h-16 shrink-0 items-center w-full">
-            <div className="font-bold text-2xl w-full">Onus</div>
+          <div className="flex h-16 w-full shrink-0 items-center">
+            <div className="w-full text-2xl font-bold">Onus</div>
           </div>
           <nav className="flex flex-1 flex-col">
             <ul role="list" className="flex flex-1 flex-col justify-between">
@@ -145,8 +145,8 @@ const SidebarLayout = (props) => {
                         className={clsx(
                           isCurrent(item.href)
                             ? 'bg-neutral-800 text-white'
-                            : 'text-gray-400 hover:text-white hover:bg-neutral-800',
-                          'group flex gap-x-3 px-6 py-2 text-sm leading-6 font-semibold transition-all duration-200',
+                            : 'text-gray-400 hover:bg-neutral-800 hover:text-white',
+                          'group flex gap-x-3 px-6 py-2 text-sm font-semibold leading-6 transition-all duration-200',
                         )}
                       >
                         <item.icon className="h-6 w-6 shrink-0" aria-hidden="true" />
@@ -162,8 +162,8 @@ const SidebarLayout = (props) => {
                     <a
                       href={GITHUB_REPO}
                       className={clsx(
-                        'text-gray-400 font-normal hover:bg-neutral-800 mb-8',
-                        'group flex gap-x-3 px-6 py-1 hover:text-white hover:underline text-sm leading-6 font-semibold transition-all duration-200',
+                        'mb-8 font-normal text-gray-400 hover:bg-neutral-800',
+                        'group flex gap-x-3 px-6 py-1 text-sm font-semibold leading-6 transition-all duration-200 hover:text-white hover:underline',
                       )}
                     >
                       <span>{USER.credits} Credits</span>
@@ -175,7 +175,7 @@ const SidebarLayout = (props) => {
                         href={link.href}
                         className={clsx(
                           isCurrent(link.href) ? 'bg-neutral-800 text-white' : 'text-gray-400 hover:bg-neutral-800',
-                          'group flex gap-x-3 px-6 py-1 hover:text-white hover:underline text-sm leading-6 font-semibold transition-all duration-200',
+                          'group flex gap-x-3 px-6 py-1 text-sm font-semibold leading-6 transition-all duration-200 hover:text-white hover:underline',
                         )}
                       >
                         <span className="truncate">{link.name}</span>
@@ -219,7 +219,7 @@ const SidebarLayout = (props) => {
         </a>
       </div>
 
-      <main className="lg:ml-[162px] pb-[69px] h-full w-full flex flex-col">{props.children}</main>
+      <main className="flex h-full w-full flex-col pb-[69px] lg:ml-[162px]">{props.children}</main>
     </div>
   );
 };

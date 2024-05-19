@@ -2,7 +2,7 @@ import GithubButton from 'components/Button/GithubButton';
 
 const Me = () => {
   return (
-    <div className="p-8 flex">
+    <div className="flex p-8">
       <GithubButton />
     </div>
   );

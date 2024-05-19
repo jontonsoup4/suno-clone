@@ -36,8 +36,8 @@ const Tooltip = (props) => {
           <QuestionMarkCircleIcon className="h-4 w-4 text-neutral-500" />
         </Menu.Button>
 
-        <Menu.Items className="rounded-lg backdrop-blur-2xl bg-neutral-700/[0.5]" static>
-          <p className="rounded-lg px-4 py-2 max-w-72 leading-6">{children}</p>
+        <Menu.Items className="rounded-lg bg-neutral-700/[0.5] backdrop-blur-2xl" static>
+          <p className="max-w-72 rounded-lg px-4 py-2 leading-6">{children}</p>
         </Menu.Items>
       </Float>
     </Menu>

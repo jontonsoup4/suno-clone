@@ -13,7 +13,7 @@ const Select = (props) => {
       <HeadlessUISelect
         id={label}
         name={label}
-        className="mt-2 bg-black block w-full rounded-md border-0 py-1 pl-3 pr-10 ring-1 ring-inset ring-neutral-800 focus:ring-2 focus:ring-orange-400 sm:text-sm sm:leading-6"
+        className="focus:ring-2 mt-2 block w-full rounded-md border-0 bg-black py-1 pl-3 pr-10 ring-1 ring-inset ring-neutral-800 focus:ring-orange-400 sm:text-sm sm:leading-6"
         {...rest}
       >
         {options.map((option) => (

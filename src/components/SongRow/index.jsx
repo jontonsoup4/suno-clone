@@ -28,16 +28,16 @@ const SongRow = (props) => {
 
   return (
     <li
-      className={clsx({ ['bg-neutral-900']: active }, 'flex pl-6 py-2 cursor-pointer hover:bg-neutral-900')}
+      className={clsx({ ['bg-neutral-900']: active }, 'flex cursor-pointer py-2 pl-6 hover:bg-neutral-900')}
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
       onClick={handleSelectSong}
     >
-      <div className="flex-none relative">
+      <div className="relative flex-none">
         <img className="h-[60px] w-[60px] bg-gray-50" src={song.image_url} alt="" />
         <button
           className={clsx(
-            'absolute h-[60px] w-[60px] top-0 flex items-center justify-center opacity-0 transition-opacity duration-200',
+            'absolute top-0 flex h-[60px] w-[60px] items-center justify-center opacity-0 transition-opacity duration-200',
             {
               ['opacity-100']: isHovered || active,
             },
@@ -48,13 +48,13 @@ const SongRow = (props) => {
           />
         </button>
       </div>
-      <div className="flex flex-1 px-4 flex-col xl:flex-row">
+      <div className="flex flex-1 flex-col px-4 xl:flex-row">
         <div className="flex flex-1 flex-col justify-center">
           <p className="flex items-center">
             <a
               href={`#${song.id}`}
               className={clsx(
-                'hover:underline text-sm font-semibold transition-all duration-200',
+                'text-sm font-semibold transition-all duration-200 hover:underline',
                 active ? 'text-orange-400' : 'text-white',
               )}
             >

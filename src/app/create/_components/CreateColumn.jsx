@@ -113,7 +113,7 @@ const CreateColumn = (props) => {
         <TextArea
           className="mb-4"
           label={
-            <div className="flex items-center leading-none gap-x-1">
+            <div className="flex items-center gap-x-1 leading-none">
               <span>Song Description</span>
               <Tooltip>
                 Describe the style of music and topic you want (e.g. 'acoustic pop about the holidays*). Use genres and
@@ -172,7 +172,7 @@ const CreateColumn = (props) => {
       <Select options={models} value={model.id} onChange={handleModelChange} className="mb-4" />
       <Button variant="primary" size="lg" fullWidth disabled={createIsDisabled} onClick={handleCreate}>
         <span>Create</span>
-        <MusicalNoteIcon className="h-4 w-4 ml-2" />
+        <MusicalNoteIcon className="ml-2 h-4 w-4" />
       </Button>
     </div>
   );

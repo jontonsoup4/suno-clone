@@ -20,25 +20,25 @@ const SongPreview = (props) => {
           <div className="p-2">
             <img className="h-full w-full rounded-lg" src={song.image_url} alt="" />
           </div>
-          <div className="p-4 flex flex-col">
-            <a href={`#${song.id}`} className="font-bold mb-2 hover:underline">
+          <div className="flex flex-col p-4">
+            <a href={`#${song.id}`} className="mb-2 font-bold hover:underline">
               {song.title}
             </a>
-            <div className="flex items-center gap-x-1 mb-2 text-sm">
+            <div className="mb-2 flex items-center gap-x-1 text-sm">
               <UserIcon className="h-4 w-4" />
               <a href={`#@${song.handle}`} className="hover:underline">
                 {song.display_name}
               </a>
             </div>
-            <div className="text-sm mb-2">{song?.metadata?.tags}</div>
-            <div className="text-xs text-neutral-500 mb-4">{timestamp}</div>
+            <div className="mb-2 text-sm">{song?.metadata?.tags}</div>
+            <div className="mb-4 text-xs text-neutral-500">{timestamp}</div>
             <div className="mb-8">
               <Interactions song={song} />
             </div>
             {song?.metadata?.gpt_description_prompt && (
-              <div className="text-sm text-neutral-400 mb-8">{song?.metadata?.gpt_description_prompt}</div>
+              <div className="mb-8 text-sm text-neutral-400">{song?.metadata?.gpt_description_prompt}</div>
             )}
-            <p className="text-sm whitespace-pre-line leading-[1.5] font-light">{song?.metadata?.prompt}</p>
+            <p className="whitespace-pre-line text-sm font-light leading-[1.5]">{song?.metadata?.prompt}</p>
           </div>
         </div>
       ) : (

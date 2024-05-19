@@ -6,7 +6,7 @@ const Input = (props) => {
   return (
     <Field className={className}>
       {label && (
-        <Label htmlFor={label} className="block text-sm font-medium leading-6 mb-2">
+        <Label htmlFor={label} className="mb-2 block text-sm font-medium leading-6">
           {label}
         </Label>
       )}
@@ -22,7 +22,7 @@ const Input = (props) => {
           id={label}
           className={clsx(
             className,
-            'block w-full px-4 py-1 rounded-lg bg-transparent placeholder:text-white/[0.50] ring-1 focus:ring-orange-300 focus:outline-none font-light ring-neutral-800 sm:text-md sm:leading-6 transition-all duration-200',
+            'sm:text-md block w-full rounded-lg bg-transparent px-4 py-1 font-light ring-1 ring-neutral-800 transition-all duration-200 placeholder:text-white/[0.50] focus:outline-none focus:ring-orange-300 sm:leading-6',
           )}
           {...rest}
         />

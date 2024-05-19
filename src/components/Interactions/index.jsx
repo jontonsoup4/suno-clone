@@ -77,7 +77,7 @@ const Interactions = (props) => {
       </Button>
       <Menu
         as="div"
-        className="relative flex-none p-2 bg-transparent hover:bg-white/10 transition-background-color duration-200 rounded-md"
+        className="transition-background-color relative flex-none rounded-md bg-transparent p-2 duration-200 hover:bg-white/10"
       >
         <Float
           portal
@@ -96,7 +96,7 @@ const Interactions = (props) => {
           </Menu.Button>
           <Menu.Items
             className={
-              'w-56 p-1 shadow-lg ring-1 ring-neutral-700 focus:outline-none rounded-lg backdrop-blur-2xl bg-neutral-800/[0.8]'
+              'w-56 rounded-lg bg-neutral-800/[0.8] p-1 shadow-lg ring-1 ring-neutral-700 backdrop-blur-2xl focus:outline-none'
             }
           >
             <div>
@@ -107,7 +107,7 @@ const Interactions = (props) => {
                       href={item.href}
                       className={clsx(
                         { ['bg-neutral-700']: active },
-                        'block px-2 py-1 text-sm leading-6 text-white transition-all duration-200 rounded-lg',
+                        'block rounded-lg px-2 py-1 text-sm leading-6 text-white transition-all duration-200',
                       )}
                     >
                       {item.label}
@@ -116,7 +116,7 @@ const Interactions = (props) => {
                 </Menu.Item>
               ))}
             </div>
-            <div className="border-neutral-700 border-b-[1px] my-2" />
+            <div className="my-2 border-b-[1px] border-neutral-700" />
             <div>
               {SONGS_ACTIONS_BOTTOM.map((item) => (
                 <Menu.Item key={item.label}>
@@ -125,7 +125,7 @@ const Interactions = (props) => {
                       href={item.href}
                       className={clsx(
                         { ['bg-neutral-700']: active },
-                        'block px-3 py-1 text-sm leading-6 text-white transition-all duration-200 rounded-lg',
+                        'block rounded-lg px-3 py-1 text-sm leading-6 text-white transition-all duration-200',
                       )}
                     >
                       {item.label}
@@ -134,7 +134,7 @@ const Interactions = (props) => {
                 </Menu.Item>
               ))}
             </div>
-            <div className="border-neutral-700 border-b-[1px] my-2" />
+            <div className="my-2 border-b-[1px] border-neutral-700" />
             <div>
               <Menu.Item>
                 {({ active }) => (
@@ -142,7 +142,7 @@ const Interactions = (props) => {
                     href="#trash"
                     className={clsx(
                       { ['bg-neutral-700']: active },
-                      'block px-3 py-1 text-sm leading-6 text-white transition-all duration-200 rounded-lg',
+                      'block rounded-lg px-3 py-1 text-sm leading-6 text-white transition-all duration-200',
                     )}
                   >
                     Move to Trash

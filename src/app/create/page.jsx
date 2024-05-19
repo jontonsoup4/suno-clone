@@ -15,14 +15,14 @@ const Create = () => {
   };
 
   return (
-    <div className="flex flex-row h-full">
-      <div className="min-w-[300px] xl:min-w-[360px] border-neutral-800 border-r-[1px]">
+    <div className="flex h-full flex-row">
+      <div className="min-w-[300px] border-r-[1px] border-neutral-800 xl:min-w-[360px]">
         <CreateColumn />
       </div>
-      <div className="flex-1 border-neutral-800 border-r-[1px] h-full">
+      <div className="h-full flex-1 border-r-[1px] border-neutral-800">
         <SongsColumn songs={songs} selectedSong={selectedSong} onSelectSong={onSelectSong} />
       </div>
-      <div className="flex-[0_0_300px] h-full">
+      <div className="h-full flex-[0_0_300px]">
         <SongPreview song={selectedSong} />
       </div>
     </div>
