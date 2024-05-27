@@ -4,7 +4,14 @@ import { Fragment, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Dialog, Transition } from '@headlessui/react';
-import { Bars3Icon, CalendarIcon, FolderIcon, HomeIcon, UsersIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import {
+  Bars3Icon,
+  CalendarIcon,
+  FolderIcon,
+  HomeIcon,
+  UsersIcon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline';
 import { USER, GITHUB_REPO } from 'utils/data';
 import clsx from 'clsx';
 import MediaPlayer from 'components/MediaPlayer';
@@ -67,7 +74,11 @@ const SidebarLayout = (props) => {
                   leaveTo="opacity-0"
                 >
                   <div className="absolute left-full top-0 flex w-16 justify-center pt-5">
-                    <button type="button" className="-m-2.5 p-2.5" onClick={() => setSidebarOpen(false)}>
+                    <button
+                      type="button"
+                      className="-m-2.5 p-2.5"
+                      onClick={() => setSidebarOpen(false)}
+                    >
                       <span className="sr-only">Close sidebar</span>
                       <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                     </button>
@@ -93,7 +104,10 @@ const SidebarLayout = (props) => {
                                   'group flex gap-x-3 p-2 text-sm font-semibold leading-6',
                                 )}
                               >
-                                <item.icon className="h-6 w-6 shrink-0" aria-hidden="true" />
+                                <item.icon
+                                  className="h-6 w-6 shrink-0"
+                                  aria-hidden="true"
+                                />
                                 {item.name}
                               </Link>
                             </li>
@@ -108,7 +122,9 @@ const SidebarLayout = (props) => {
                               <a
                                 href={link.href}
                                 className={clsx(
-                                  isCurrent(link.href) ? 'bg-neutral-800' : 'text-gray-400 hover:bg-neutral-800',
+                                  isCurrent(link.href)
+                                    ? 'bg-neutral-800'
+                                    : 'text-gray-400 hover:bg-neutral-800',
                                   'group flex gap-x-3 p-2 text-sm font-semibold leading-6',
                                 )}
                               >
@@ -149,7 +165,10 @@ const SidebarLayout = (props) => {
                           'group flex gap-x-3 px-6 py-2 text-sm font-semibold leading-6 transition-all duration-200',
                         )}
                       >
-                        <item.icon className="h-6 w-6 shrink-0" aria-hidden="true" />
+                        <item.icon
+                          className="h-6 w-6 shrink-0"
+                          aria-hidden="true"
+                        />
                         {item.name}
                       </Link>
                     </li>
@@ -174,7 +193,9 @@ const SidebarLayout = (props) => {
                       <a
                         href={link.href}
                         className={clsx(
-                          isCurrent(link.href) ? 'bg-neutral-800 text-white' : 'text-gray-400 hover:bg-neutral-800',
+                          isCurrent(link.href)
+                            ? 'bg-neutral-800 text-white'
+                            : 'text-gray-400 hover:bg-neutral-800',
                           'group flex gap-x-3 px-6 py-1 text-sm font-semibold leading-6 transition-all duration-200 hover:text-white hover:underline',
                         )}
                       >
@@ -204,7 +225,11 @@ const SidebarLayout = (props) => {
       </div>
 
       <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-neutral-900 px-4 py-4 shadow-sm sm:px-6 lg:hidden">
-        <button type="button" className="-m-2.5 p-2.5 text-gray-400 lg:hidden" onClick={() => setSidebarOpen(true)}>
+        <button
+          type="button"
+          className="-m-2.5 p-2.5 text-gray-400 lg:hidden"
+          onClick={() => setSidebarOpen(true)}
+        >
           <span className="sr-only">Open sidebar</span>
           <Bars3Icon className="h-6 w-6" aria-hidden="true" />
         </button>
@@ -219,7 +244,9 @@ const SidebarLayout = (props) => {
         </a>
       </div>
 
-      <main className="flex h-full w-full flex-col pb-[69px] lg:ml-[162px]">{props.children}</main>
+      <main className="flex h-full w-full flex-col pb-[69px] lg:ml-[162px]">
+        {props.children}
+      </main>
     </div>
   );
 };

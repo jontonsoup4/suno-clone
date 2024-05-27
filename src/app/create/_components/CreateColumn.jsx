@@ -2,7 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import { MusicalNoteIcon } from '@heroicons/react/20/solid';
-import { getRandomPrompt, getRandomDescriptiveGenre, getRandomLyrics } from 'utils/random';
+import {
+  getRandomPrompt,
+  getRandomDescriptiveGenre,
+  getRandomLyrics,
+} from 'utils/random';
 import { MODELS } from 'utils/data';
 import Toggle from 'components/Toggle';
 import Select from 'components/Select';
@@ -86,7 +90,12 @@ const CreateColumn = (props) => {
 
   return (
     <div className="p-4">
-      <Toggle value={isCustomMode} onChange={setIsCustomMode} label="Custom Mode" className="mb-6" />
+      <Toggle
+        value={isCustomMode}
+        onChange={setIsCustomMode}
+        label="Custom Mode"
+        className="mb-6"
+      />
       {isCustomMode ? (
         <TextArea
           className="mb-4"
@@ -94,8 +103,8 @@ const CreateColumn = (props) => {
             <div className="flex items-center gap-x-1">
               <span>Lyrics</span>
               <Tooltip>
-                Generate random lyrics, write your own, or get some help from Al. Use two verses (8 lines) for best
-                results.{' '}
+                Generate random lyrics, write your own, or get some help from
+                Al. Use two verses (8 lines) for best results.{' '}
               </Tooltip>
             </div>
           }
@@ -105,7 +114,11 @@ const CreateColumn = (props) => {
           onChange={handleSongLyricsChange}
           value={songLyrics}
         >
-          <Button variant="secondary" onClick={setRandomLyrics} icon={<RandomSVG />}>
+          <Button
+            variant="secondary"
+            onClick={setRandomLyrics}
+            icon={<RandomSVG />}
+          >
             Make Random Lyrics
           </Button>
         </TextArea>
@@ -116,8 +129,9 @@ const CreateColumn = (props) => {
             <div className="flex items-center gap-x-1 leading-none">
               <span>Song Description</span>
               <Tooltip>
-                Describe the style of music and topic you want (e.g. 'acoustic pop about the holidays*). Use genres and
-                vibes instead of specific artists and songs.
+                Describe the style of music and topic you want (e.g. 'acoustic
+                pop about the holidays*). Use genres and vibes instead of
+                specific artists and songs.
               </Tooltip>
             </div>
           }
@@ -125,7 +139,11 @@ const CreateColumn = (props) => {
           onChange={handleSongPromptChange}
           value={songPrompt}
         >
-          <Button variant="secondary" onClick={setRandomPrompt} icon={<RandomSVG />}>
+          <Button
+            variant="secondary"
+            onClick={setRandomPrompt}
+            icon={<RandomSVG />}
+          >
             Randomize Prompt
           </Button>
         </TextArea>
@@ -150,7 +168,11 @@ const CreateColumn = (props) => {
           onChange={handleSetStyle}
           value={songStyle}
         >
-          <Button variant="secondary" onClick={handleSetRandomStyle} icon={<RandomSVG />}>
+          <Button
+            variant="secondary"
+            onClick={handleSetRandomStyle}
+            icon={<RandomSVG />}
+          >
             Use Random Style
           </Button>
         </TextArea>
@@ -160,7 +182,9 @@ const CreateColumn = (props) => {
           label={
             <div className="flex items-center gap-x-1">
               <span>Title</span>
-              <Tooltip>Give your song a title for sharing, discovery and organization.</Tooltip>
+              <Tooltip>
+                Give your song a title for sharing, discovery and organization.
+              </Tooltip>
             </div>
           }
           placeholder="Enter a title..."
@@ -169,8 +193,19 @@ const CreateColumn = (props) => {
           className="mb-8"
         />
       )}
-      <Select options={models} value={model.id} onChange={handleModelChange} className="mb-4" />
-      <Button variant="primary" size="lg" fullWidth disabled={createIsDisabled} onClick={handleCreate}>
+      <Select
+        options={models}
+        value={model.id}
+        onChange={handleModelChange}
+        className="mb-4"
+      />
+      <Button
+        variant="primary"
+        size="lg"
+        fullWidth
+        disabled={createIsDisabled}
+        onClick={handleCreate}
+      >
         <span>Create</span>
         <MusicalNoteIcon className="ml-2 h-4 w-4" />
       </Button>

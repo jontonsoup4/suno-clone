@@ -6,7 +6,12 @@ const SongsList = (props) => {
   return (
     <ul role="list">
       {songs.map((song) => (
-        <SongRow key={song.id} active={selectedSong?.id === song?.id} song={song} onSelectSong={onSelectSong} />
+        <SongRow
+          key={song.id}
+          active={selectedSong?.id === song?.id}
+          song={song}
+          onSelectSong={onSelectSong}
+        />
       ))}
     </ul>
   );

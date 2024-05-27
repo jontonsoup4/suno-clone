@@ -28,13 +28,20 @@ const SongRow = (props) => {
 
   return (
     <li
-      className={clsx({ ['bg-neutral-900']: active }, 'flex cursor-pointer py-2 pl-6 hover:bg-neutral-900')}
+      className={clsx(
+        { ['bg-neutral-900']: active },
+        'flex cursor-pointer py-2 pl-6 hover:bg-neutral-900',
+      )}
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
       onClick={handleSelectSong}
     >
       <div className="relative flex-none">
-        <img className="h-[60px] w-[60px] bg-gray-50" src={song.image_url} alt="" />
+        <img
+          className="h-[60px] w-[60px] bg-gray-50"
+          src={song.image_url}
+          alt=""
+        />
         <button
           className={clsx(
             'absolute top-0 flex h-[60px] w-[60px] items-center justify-center opacity-0 transition-opacity duration-200',
@@ -44,7 +51,10 @@ const SongRow = (props) => {
           )}
         >
           <PlayIcon
-            className={clsx('h-6 w-6 transition-all duration-200', active ? 'text-orange-400' : 'text-white')}
+            className={clsx(
+              'h-6 w-6 transition-all duration-200',
+              active ? 'text-orange-400' : 'text-white',
+            )}
           />
         </button>
       </div>
@@ -60,7 +70,9 @@ const SongRow = (props) => {
             >
               {song.title}
             </a>
-            <Badge highlighted={isHovered || active}>{song?.major_model_version}</Badge>
+            <Badge highlighted={isHovered || active}>
+              {song?.major_model_version}
+            </Badge>
           </p>
           <p className="text-sm text-neutral-500">
             <a href={`#${song.id}`} className="truncate hover:underline">

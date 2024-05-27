@@ -18,7 +18,11 @@ const SongPreview = (props) => {
       {song ? (
         <div className="flex flex-col">
           <div className="p-2">
-            <img className="h-full w-full rounded-lg" src={song.image_url} alt="" />
+            <img
+              className="h-full w-full rounded-lg"
+              src={song.image_url}
+              alt=""
+            />
           </div>
           <div className="flex flex-col p-4">
             <a href={`#${song.id}`} className="mb-2 font-bold hover:underline">
@@ -36,9 +40,13 @@ const SongPreview = (props) => {
               <Interactions song={song} />
             </div>
             {song?.metadata?.gpt_description_prompt && (
-              <div className="mb-8 text-sm text-neutral-400">{song?.metadata?.gpt_description_prompt}</div>
+              <div className="mb-8 text-sm text-neutral-400">
+                {song?.metadata?.gpt_description_prompt}
+              </div>
             )}
-            <p className="whitespace-pre-line text-sm font-light leading-[1.5]">{song?.metadata?.prompt}</p>
+            <p className="whitespace-pre-line text-sm font-light leading-[1.5]">
+              {song?.metadata?.prompt}
+            </p>
           </div>
         </div>
       ) : (

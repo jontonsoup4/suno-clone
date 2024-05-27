@@ -15,7 +15,7 @@ const satoshi = localFont({
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${satoshi.className} h-full`}>
-      <body className="h-full">
+      <body className="h-full overflow-hidden">
         <SidebarLayout>{children}</SidebarLayout>
       </body>
     </html>

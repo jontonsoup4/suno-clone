@@ -7,7 +7,11 @@ const SongsColumn = (props) => {
 
   return (
     <div className="flex h-full flex-1 flex-col gap-0 overflow-x-hidden overflow-y-scroll">
-      <SongsList selectedSong={selectedSong} songs={songs} onSelectSong={onSelectSong} />
+      <SongsList
+        selectedSong={selectedSong}
+        songs={songs}
+        onSelectSong={onSelectSong}
+      />
     </div>
   );
 };

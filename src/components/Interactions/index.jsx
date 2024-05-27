@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import Button from 'components/Button';
-import { EllipsisHorizontalIcon, HandThumbDownIcon, HandThumbUpIcon, ShareIcon } from '@heroicons/react/20/solid';
+import {
+  EllipsisHorizontalIcon,
+  HandThumbDownIcon,
+  HandThumbUpIcon,
+  ShareIcon,
+} from '@heroicons/react/20/solid';
 import { Menu, Transition } from '@headlessui/react';
 import { Float } from '@headlessui-float/react';
 import clsx from 'clsx';

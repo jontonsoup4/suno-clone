@@ -2,14 +2,29 @@ import { Field, Label, Textarea } from '@headlessui/react';
 import clsx from 'clsx';
 
 const TextArea = (props) => {
-  const { label, placeholder, onChange, value, children, className, rows = 3, disabled } = props;
+  const {
+    label,
+    placeholder,
+    onChange,
+    value,
+    children,
+    className,
+    rows = 3,
+    disabled,
+  } = props;
   return (
     <Field
-      className={clsx(className, 'col-span-full data-[disabled]:cursor-not-allowed data-[disabled]:opacity-40')}
+      className={clsx(
+        className,
+        'col-span-full data-[disabled]:cursor-not-allowed data-[disabled]:opacity-40',
+      )}
       disabled={disabled}
     >
       {label && (
-        <Label htmlFor={label} className="mb-2 block text-sm font-medium leading-6">
+        <Label
+          htmlFor={label}
+          className="mb-2 block text-sm font-medium leading-6"
+        >
           {label}
         </Label>
       )}
@@ -37,7 +52,11 @@ const TextArea = (props) => {
           </div>
         </div>
 
-        {children && <div className="absolute inset-x-0 bottom-0 flex justify-between py-2 pl-3 pr-2">{children}</div>}
+        {children && (
+          <div className="absolute inset-x-0 bottom-0 flex justify-between py-2 pl-3 pr-2">
+            {children}
+          </div>
+        )}
       </div>
     </Field>
   );

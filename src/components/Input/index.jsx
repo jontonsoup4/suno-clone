@@ -6,7 +6,10 @@ const Input = (props) => {
   return (
     <Field className={className}>
       {label && (
-        <Label htmlFor={label} className="mb-2 block text-sm font-medium leading-6">
+        <Label
+          htmlFor={label}
+          className="mb-2 block text-sm font-medium leading-6"
+        >
           {label}
         </Label>
       )}

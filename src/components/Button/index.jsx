@@ -3,11 +3,21 @@ import { Button as HeadlessUIButton } from '@headlessui/react';
 import clsx from 'clsx';
 
 const Button = (props) => {
-  const { variant = 'primary', children, className, fullWidth, size = 'sm', icon, href, ...rest } = props;
+  const {
+    variant = 'primary',
+    children,
+    className,
+    fullWidth,
+    size = 'sm',
+    icon,
+    href,
+    ...rest
+  } = props;
 
   const baseButtonClassName =
     'flex justify-center items-center rounded-md px-3 py-2 font-semibold shadow-sm transition-background-color duration-200';
-  const disabledButtonClassName = 'disabled:opacity-40 disabled:cursor-not-allowed';
+  const disabledButtonClassName =
+    'disabled:opacity-40 disabled:cursor-not-allowed';
   let buttonClassName = '';
   if (variant === 'primary') {
     buttonClassName = 'bg-orange-200 text-black enabled:hover:bg-orange-300';
@@ -50,9 +60,16 @@ const Button = (props) => {
     <HeadlessUIButton
       {...rest}
       type="button"
-      className={clsx(baseButtonClassName, buttonClassName, disabledButtonClassName, buttonSize[size], className, {
-        ['w-full']: fullWidth,
-      })}
+      className={clsx(
+        baseButtonClassName,
+        buttonClassName,
+        disabledButtonClassName,
+        buttonSize[size],
+        className,
+        {
+          ['w-full']: fullWidth,
+        },
+      )}
     >
       {icon && <div className="mr-2">{icon}</div>}
       {children}
